@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/firebase';
@@ -60,10 +59,13 @@ export default function Login() {
           borderRadius: 4,
           textAlign: 'center',
           animation: 'fadeIn 1s ease-in-out',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
         <Typography variant="h4" fontWeight="bold" mb={2} color="primary">
-          Welcome Back
+          Welcome
         </Typography>
         <Typography variant="subtitle1" mb={3} color="textSecondary">
           Please login to your account
@@ -75,18 +77,25 @@ export default function Login() {
           </Typography>
         )}
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+        <label htmlFor="email" style={{ textAlign: 'left', display: 'block' }}>
+  Email Address
+</label>
           <TextField
-            label="Email Address"
+        
             variant="outlined"
             fullWidth
             margin="normal"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            sx={{ mb: 2, minHeight: 56 }}
           />
+           <label htmlFor="email" style={{ textAlign: 'left', display: 'block' }}>
+Password
+</label>
           <TextField
-            label="Password"
+          
             variant="outlined"
             type="password"
             fullWidth
@@ -94,6 +103,7 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            sx={{ mb: 2, minHeight: 56 }}
           />
           <Button
             type="submit"

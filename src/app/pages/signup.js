@@ -108,8 +108,10 @@ export default function Signup() {
         )}
 
         <form onSubmit={handleSubmit}>
+        <label htmlFor="email" style={{ textAlign: 'left', display: 'block' }}>
+  Email Address
+</label>
           <TextField
-            label="Email Address"
             type="email"
             fullWidth
             margin="normal"
@@ -117,8 +119,10 @@ export default function Signup() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+             <label htmlFor="email" style={{ textAlign: 'left', display: 'block' }}>
+  Password
+</label>
           <TextField
-            label="Password"
             type={showPassword ? 'text' : 'password'}
             fullWidth
             margin="normal"
@@ -136,8 +140,10 @@ export default function Signup() {
               ),
             }}
           />
+             <label htmlFor="email" style={{ textAlign: 'left', display: 'block' }}>
+  Confirm Password
+</label>
           <TextField
-            label="Confirm Password"
             type={showConfirmPassword ? 'text' : 'password'}
             fullWidth
             margin="normal"

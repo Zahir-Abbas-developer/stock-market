@@ -30,7 +30,7 @@ import {
   Snackbar,
   Alert,
 } from '@mui/material';
-import { API_BASE_URL, CREATE_ALERT_ROUTE, GET_ALERTS_ROUTE, DELETE_ALERT_ROUTE, UPDATE_ALERT_ROUTE } from '../apiRoutes';
+import { API_BASE_URL, CREATE_ALERT_ROUTE, GET_ALERTS_ROUTE} from '../apiRoutes';
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -146,26 +146,6 @@ export default function Dashboard() {
     }
   };
 
-  const handleDeleteAlert = async (alertId) => {
-    try {
-      await axios.delete(`${API_BASE_URL}${DELETE_ALERT_ROUTE}/${alertId}`
-
-      );
-      setSnackbar({
-        open: true,
-        message: 'Alert deleted successfully!',
-        severity: 'success',
-      });
-      fetchUserAlerts(); // Refresh the alert list after deletion
-    } catch (error) {
-      console.error('Error deleting alert:', error);
-      setSnackbar({
-        open: true,
-        message: 'Failed to delete alert',
-        severity: 'error',
-      });
-    }
-  };
 
   const handleCloseSnackbar = () => {
     setSnackbar({ ...snackbar, open: false });
